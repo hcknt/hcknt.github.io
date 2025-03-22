@@ -6,12 +6,13 @@
 @import "minimal-mistakes";
 
 .author__avatar img {
-  border-radius: 0%;
-  filter: none;
-  opacity: 1;
-  transition: none;
+  border-radius: 0% !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: none !important;
 }
+
 .author__avatar:hover img {
-  filter: none;
-  opacity: 1;
+  filter: none !important;
+  opacity: 1 !important;
 }
