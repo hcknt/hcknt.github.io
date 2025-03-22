@@ -4,6 +4,7 @@
     {% assign date = document.date %}
     <span class="page__meta-date">
       <i class="far {% if include.type == 'grid' and document.read_time %}fa-fw {% endif %}fa-calendar-alt" aria-hidden="true"></i>
+      {{ site.data.ui-text[site.locale].date_created_label | default: "created:" }}
       {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
       <time datetime="{{ date | date_to_xmlschema }}">{{ date | date: date_format }}</time>
     </span>
