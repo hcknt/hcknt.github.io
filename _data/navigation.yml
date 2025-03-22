@@ -7,3 +7,11 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
+
+sidebar-categories:
+  - title: "categories"
+    children:
+      - title: "diary"
+        url: /categories/diary/
+      - title: "project"
+        url: /categories/project/

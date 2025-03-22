@@ -102,6 +102,8 @@ defaults:
       comments: true
       share: true
       related: true
+      sidebar:
+        nav: sidebar-navigation
   # _pages
   - scope:
       path: "_pages"
@@ -109,6 +111,8 @@ defaults:
     values:
       layout: single
       author_profile: false
+      sidebar:
+        nav: sidebar-navigation
 
 category_archive:
   type: liquid
