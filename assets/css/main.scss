@@ -5,7 +5,13 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes";
 
-// 프로필 이미지 모서리 처리
 .author__avatar img {
-  border-radius: 0% !important;
+  border-radius: 0%;
+  filter: none;
+  opacity: 1;
+  transition: none;
+}
+.author__avatar:hover img {
+  filter: none;
+  opacity: 1;
 }
