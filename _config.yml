@@ -103,6 +103,9 @@ defaults:
       # share: true
       related: true
       show_date: true
+      show_last_modified_at: true
+      show_categories: true
+      show_tags: true
       sidebar:
         nav: sidebar-categories
   # _pages
