@@ -5,5 +5,5 @@
 layout: home
 author_profile: false
 sidebar:
-  nav: custom-sidebar-categories
+  nav: sidebar-categories
 ---
