@@ -2,8 +2,10 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes";
 
+// 프로필 이미지 모서리 처리
 .author__avatar img {
-  border-radius: 0%;
+  border-radius: 0% !important;
 }
