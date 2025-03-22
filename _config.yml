@@ -103,7 +103,7 @@ defaults:
       share: true
       related: true
       sidebar:
-        nav: sidebar-categories
+        nav: custom-sidebar-categories
   # _pages
   - scope:
       path: "_pages"
@@ -112,7 +112,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        nav: sidebar-categories
+        nav: custom-sidebar-categories
 
 category_archive:
   type: liquid
