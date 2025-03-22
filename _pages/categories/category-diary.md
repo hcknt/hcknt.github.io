@@ -5,4 +5,3 @@ permalink: /categories/diary/
 taxonomy: diary
 ---
 
-Cool and unusual things
