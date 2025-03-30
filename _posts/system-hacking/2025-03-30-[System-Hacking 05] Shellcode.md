@@ -306,6 +306,27 @@ pwndbg> x/s 0x7fffffffe2c8
         n: 0x30
 ```
 
+```asm
+ ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
+        fd: 1 (/dev/pts/2)
+        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
+        n: 0x30
+```
+
+```nasm
+ ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
+        fd: 1 (/dev/pts/2)
+        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
+        n: 0x30
+```
+
+```assembly
+ ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
+        fd: 1 (/dev/pts/2)
+        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
+        n: 0x30
+```
+
 (the address is changed in the second run for me btw)
 
 When we execute the `ni` command, it outputs 48 bytes (0x30) from the memory address `0x7fffffffe2c8` where the data is stored.
