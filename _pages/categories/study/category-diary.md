@@ -4,4 +4,3 @@ layout: category
 permalink: /categories/diary/
 taxonomy: diary
 ---
-

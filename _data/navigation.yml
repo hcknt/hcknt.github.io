@@ -13,5 +13,8 @@ sidebar-categories:
     children:
       - title: "diary"
         url: /categories/diary/
-      - title: "project"
-        url: /categories/project/
+      - title: "study"
+        url: /categories/study/
+        children:
+          - title: "system-hacking"
+            url: /categories/study/system-hacking/
