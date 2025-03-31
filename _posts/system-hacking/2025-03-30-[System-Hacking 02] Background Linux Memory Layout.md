@@ -1,5 +1,5 @@
 ---
-title: "[System-Hacking 02] Linux Memoty Layout"
+title: "[System-Hacking 02] Linux Memory Layout"
 date: 2025-03-30
 last_modified_at: 2025-03-30
 categories:
