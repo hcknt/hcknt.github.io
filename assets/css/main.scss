@@ -26,3 +26,23 @@
 .page {
   width: calc(100% - #{$right-sidebar-width-narrow});
 }
+
+html {
+  font-size: 12px;
+
+  @include breakpoint($small) {
+    font-size: 12px;
+  }
+
+  @include breakpoint($medium) {
+    font-size: 14px;
+  }
+
+  @include breakpoint($large) {
+    font-size: 16px;
+  }
+
+  @include breakpoint($x-large) {
+    font-size: 18px;
+  }
+}
