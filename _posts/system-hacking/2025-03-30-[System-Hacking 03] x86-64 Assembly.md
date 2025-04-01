@@ -33,7 +33,7 @@ I thought writing down all of x86-64 reference sheet is kinda pointless, so I'll
 
 x64's code consist of an instruction (operation code, opcode), which is equivalent to a verb, and an operand, which is equivalent to an object.
 
-```x86asm
+```nasm
 mov eax, 3
 ; opcode / operand1/ operand2
 ; Move / to eax / the value 3
@@ -72,7 +72,7 @@ Memory operands use square brackets `[]` and typically include a size directive 
 | QWORD PTR      | 8     | 64   | `long long`  |
 
 Examples:
-```x86asm
+```nasm
 mov eax, 42            ; Immediate value
 mov rbx, rax           ; Register
 mov DWORD PTR [rsp], 1 ; Memory (32-bit)
