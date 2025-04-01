@@ -42,27 +42,3 @@ html {
     font-size: 20px;
   }
 }
-
-.page {
-  width: 100%;
-  padding-right: 0;
-  
-  @include breakpoint($large) {
-    width: calc(100% - #{$right-sidebar-width});
-    padding-right: $right-sidebar-width-narrow;
-  }
-  
-  @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
-    padding-right: $right-sidebar-width;
-  }
-}
-
-.page__inner-wrap {
-  max-width: 100%;
-}
-
-.page__content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
