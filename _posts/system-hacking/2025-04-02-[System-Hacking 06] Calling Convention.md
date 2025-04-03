@@ -1,3 +1,14 @@
+---
+title: "[System-Hacking 06] Calling Convention"
+date: 2025-04-03
+last_modified_at: 2025-04-04
+categories:
+  - system-hacking
+tags:
+  - system-hacking
+  - study
+---
+
 ## x86-64 Calling Convention
 
 - [x86-64 Calling Convention](#x86-64-calling-convention)
