@@ -101,7 +101,7 @@ int main() {
 
 #### Example - Return Address Buffer Overflow
 
-Looking back at [Calling Conventions](system-hacking/System-Hacking-06-Calling-Convention/), when a function is called, the <u>return address</u> is pushed onto the stack. When the function ends, this address is retrieved to **return to the original location**. We can manipulate this return address using a stack buffer overflow.
+Looking back at [Calling Convention](https://hcknt.github.io/system-hacking/System-Hacking-06-Calling-Convention/), when a function is called, the <u>return address</u> is pushed onto the stack. When the function ends, this address is retrieved to **return to the original location**. We can manipulate this return address using a stack buffer overflow.
 
 ```c
 // Name: sbof_ret_overwrite.c
